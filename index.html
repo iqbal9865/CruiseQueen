@@ -84,7 +84,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="sub-total">$00</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p id="tax">$00</p>
                     </div>
                 </div>
                 <hr>
@@ -102,7 +102,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p id="total-amount">$000</p>
                     </div>
                 </div>
             </div>
@@ -141,6 +141,7 @@
                 newFirstClass = countFirstClass - 1;
             }
             document.getElementById('count-firstClass').value = newFirstClass;
+            totalCalculate();
         }
 
         function economyIncDec(isIncrease) {
@@ -154,6 +155,22 @@
                 newCountEconomy = countEconomy - 1;
             }
             document.getElementById('count-economy').value = newCountEconomy;
+            totalCalculate();
+        }
+
+        function totalCalculate() {
+            const inputFirstClass = document.getElementById('count-firstClass');
+            const countFirstClass = parseInt(inputFirstClass.value);
+
+            const inputEconomy = document.getElementById('count-economy');
+            const countEconomy = parseInt(inputEconomy.value);
+
+            const subTotal= (countFirstClass*150) + (countEconomy*100);
+            document.getElementById('sub-total').innerText = '$'+ subTotal;
+            const tax = Math.round(subTotal * 0.1);
+            document.getElementById('tax').innerText ='$'+tax;
+            const totalAmount = subTotal + tax;
+            document.getElementById('total-amount').innerText = '$'+totalAmount;
         }
     </script>
     <!--Thank You-->
