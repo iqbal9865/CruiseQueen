@@ -110,58 +110,41 @@
         </div>
     </main>
 
-
     <script>
         //this is for number increase in first class
         document.getElementById('increase-firstClass').addEventListener('click', function () {
-            increaseAndDecrease(true);
+            increaseAndDecrease(true,'firstClass');
         });
         //this is for number decrease in first class
         document.getElementById('decrease-firstClass').addEventListener('click', function () {
-            increaseAndDecrease(false);
+            increaseAndDecrease(false,'firstClass');
         });
         //this is for number increase in economy class
         document.getElementById('increase-economy').addEventListener('click', function () {
-            economyIncDec(true);
+            increaseAndDecrease(true,'economy');
         });
         //this is for number decrease in economy class
         document.getElementById('decrease-economy').addEventListener('click', function () {
-            economyIncDec(false);
+            increaseAndDecrease(false,'economy');
         });
-
-        //function for increase and decrease in first class
-        function increaseAndDecrease(isIncrease) {
-            const inputFirstClass = document.getElementById('count-firstClass');
-            const countFirstClass = parseInt(inputFirstClass.value);
-            let newFirstClass = countFirstClass;
+        //function for increase and decrease ticket
+        function increaseAndDecrease(isIncrease,ticket) {
+            const inputClass = document.getElementById('count-'+ticket);
+            const countClass = parseInt(inputClass.value);
+            let newClass = countClass;
             if (isIncrease == true) {
-                newFirstClass = countFirstClass + 1;
+                newClass = countClass + 1;
             }
-            if (isIncrease == false && countFirstClass > 0) {
-                newFirstClass = countFirstClass - 1;
+            if (isIncrease == false && countClass > 0) {
+                newClass = countClass - 1;
             }
-            document.getElementById('count-firstClass').value = newFirstClass;
+            document.getElementById('count-'+ticket).value = newClass;
             totalCalculate();
         }
-
-        function economyIncDec(isIncrease) {
-            const inputEconomy = document.getElementById('count-economy');
-            const countEconomy = parseInt(inputEconomy.value);
-            let newCountEconomy = countEconomy;
-            if (isIncrease == true) {
-                newCountEconomy = countEconomy + 1;
-            }
-            if (isIncrease == false && countEconomy > 0) {
-                newCountEconomy = countEconomy - 1;
-            }
-            document.getElementById('count-economy').value = newCountEconomy;
-            totalCalculate();
-        }
-
+        //function for calculate amount
         function totalCalculate() {
             const inputFirstClass = document.getElementById('count-firstClass');
             const countFirstClass = parseInt(inputFirstClass.value);
-
             const inputEconomy = document.getElementById('count-economy');
             const countEconomy = parseInt(inputEconomy.value);
 
@@ -173,7 +156,5 @@
             document.getElementById('total-amount').innerText = '$'+totalAmount;
         }
     </script>
-    <!--Thank You-->
 </body>
-
 </html>
