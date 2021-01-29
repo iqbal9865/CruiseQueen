@@ -29,7 +29,7 @@
     <!--Booking Section-->
     <main class="main-content container">
 
-        <div class="booking-content">
+        <div id="right-part" class="booking-content">
             <h1>Cruise Queen</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
@@ -37,7 +37,7 @@
         </div>
 
 
-        <div class="booking-form">
+        <div id="left-part" class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -106,9 +106,14 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="booking-btn" class="btn-style">Book Now</button>
         </div>
     </main>
+    <div id="welcome-area">
+        <h1>Welcome To Travel With CRUISE QUEEN </h1>
+        <h2>Your Ticket Booking is Successful </h2>
+        <h2>Have A Safe Journey</h2>
+    </div>
 
     <script>
         //this is for number increase in first class
@@ -155,6 +160,14 @@
             const totalAmount = subTotal + tax;
             document.getElementById('total-amount').innerText = '$'+totalAmount;
         }
+        document.getElementById('booking-btn').addEventListener('click',function(){
+            const bookingContent = document.getElementById('right-part');
+            const bookingForm = document.getElementById('left-part');
+            bookingForm.style.display = 'none';
+            bookingContent.style.display = 'none';
+            const welcomeArea = document.getElementById('welcome-area');
+            welcomeArea.style.display = 'block';
+        })
     </script>
 </body>
 </html>
