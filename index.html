@@ -31,7 +31,9 @@
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book./p>
         </div>
 
 
@@ -48,7 +50,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -58,20 +60,22 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="count-firstClass" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <button id="increase-firstClass"> + </button>
+                    <button id="decrease-firstClass"> - </button>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="count-economy" class="inp-style inp-width" type="number" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <button id="increase-economy"> + </button>
+                    <button id="decrease-economy"> - </button>
                 </div>
             </div>
             <div class="calculations">
@@ -106,6 +110,39 @@
         </div>
     </main>
 
+
+    <script>
+        document.getElementById('increase-firstClass').addEventListener('click', function () {
+            const inputFirstClass = document.getElementById('count-firstClass');
+            const countFirstClass = parseInt(inputFirstClass.value);
+            const newFirstClass = countFirstClass + 1;
+            document.getElementById('count-firstClass').value = newFirstClass;
+        });
+        document.getElementById('decrease-firstClass').addEventListener('click', function () {
+            const inputFirstClass = document.getElementById('count-firstClass');
+            const countFirstClass = parseInt(inputFirstClass.value);
+            let newFirstClass;
+            if (countFirstClass > 0) {
+                 newFirstClass = countFirstClass - 1;
+            }
+            document.getElementById('count-firstClass').value = newFirstClass;
+        });
+        document.getElementById('increase-economy').addEventListener('click',function(){
+            const inputEconomy = document.getElementById('count-economy');
+            const countEconomy = parseInt(inputEconomy.value);
+            const newCountEconomy = countEconomy + 1;
+            document.getElementById('count-economy').value = newCountEconomy;
+        });
+        document.getElementById('decrease-economy').addEventListener('click',function(){
+            const inputEconomy = document.getElementById('count-economy');
+            const countEconomy = parseInt(inputEconomy.value);
+            let newCountEconomy;
+            if(countEconomy>0){
+                newCountEconomy = countEconomy - 1;
+            }
+            document.getElementById('count-economy').value = newCountEconomy;
+        });
+    </script>
     <!--Thank You-->
 </body>
 
