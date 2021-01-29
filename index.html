@@ -112,36 +112,49 @@
 
 
     <script>
+        //this is for number increase in first class
         document.getElementById('increase-firstClass').addEventListener('click', function () {
-            const inputFirstClass = document.getElementById('count-firstClass');
-            const countFirstClass = parseInt(inputFirstClass.value);
-            const newFirstClass = countFirstClass + 1;
-            document.getElementById('count-firstClass').value = newFirstClass;
+            increaseAndDecrease(true);
         });
+        //this is for number decrease in first class
         document.getElementById('decrease-firstClass').addEventListener('click', function () {
+            increaseAndDecrease(false);
+        });
+        //this is for number increase in economy class
+        document.getElementById('increase-economy').addEventListener('click', function () {
+            economyIncDec(true);
+        });
+        //this is for number decrease in economy class
+        document.getElementById('decrease-economy').addEventListener('click', function () {
+            economyIncDec(false);
+        });
+
+        //function for increase and decrease in first class
+        function increaseAndDecrease(isIncrease) {
             const inputFirstClass = document.getElementById('count-firstClass');
             const countFirstClass = parseInt(inputFirstClass.value);
-            let newFirstClass;
-            if (countFirstClass > 0) {
-                 newFirstClass = countFirstClass - 1;
+            let newFirstClass = countFirstClass;
+            if (isIncrease == true) {
+                newFirstClass = countFirstClass + 1;
+            }
+            if (isIncrease == false && countFirstClass > 0) {
+                newFirstClass = countFirstClass - 1;
             }
             document.getElementById('count-firstClass').value = newFirstClass;
-        });
-        document.getElementById('increase-economy').addEventListener('click',function(){
+        }
+
+        function economyIncDec(isIncrease) {
             const inputEconomy = document.getElementById('count-economy');
             const countEconomy = parseInt(inputEconomy.value);
-            const newCountEconomy = countEconomy + 1;
-            document.getElementById('count-economy').value = newCountEconomy;
-        });
-        document.getElementById('decrease-economy').addEventListener('click',function(){
-            const inputEconomy = document.getElementById('count-economy');
-            const countEconomy = parseInt(inputEconomy.value);
-            let newCountEconomy;
-            if(countEconomy>0){
+            let newCountEconomy = countEconomy;
+            if (isIncrease == true) {
+                newCountEconomy = countEconomy + 1;
+            }
+            if (isIncrease == false && countEconomy > 0) {
                 newCountEconomy = countEconomy - 1;
             }
             document.getElementById('count-economy').value = newCountEconomy;
-        });
+        }
     </script>
     <!--Thank You-->
 </body>
