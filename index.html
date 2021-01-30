@@ -164,11 +164,19 @@
             const bookingContent = document.getElementById('right-part');
             const bookingForm = document.getElementById('left-part');
             const heading = document.getElementById('heading');
-            bookingForm.style.display = 'none';
-            bookingContent.style.display = 'none';
-            heading.style.display = 'none';
-            const welcomeArea = document.getElementById('welcome-area');
-            welcomeArea.style.display = 'block';
+            const inputFirstClass = document.getElementById('count-firstClass');
+            const countFirstClass = parseInt(inputFirstClass.value);
+            const inputEconomy = document.getElementById('count-economy');
+            const countEconomy = parseInt(inputEconomy.value);
+            if (countFirstClass == 00 && countEconomy == 0) {
+                alert('Ticket is Empty. Must be purchase ticket for Booking. You need to purchase minimum one ticket');
+            } else {
+                bookingForm.style.display = 'none';
+                bookingContent.style.display = 'none';
+                heading.style.display = 'none';
+                const welcomeArea = document.getElementById('welcome-area');
+                welcomeArea.style.display = 'block';
+            }
         });
     </script>
 </body>
