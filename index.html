@@ -114,7 +114,9 @@
         <h1>Your Ticket Booking is Successful </h1>
         <br>
         <h2 id="ticket-show"></h2>
-        <h2>Have A Safe Journey!</h2>
+        <h2 id="amount"></h2>
+        <br>
+        <h4>Have A Safe Journey!</h4>
         <button id="download-btn">DOWNLAOD YOUR TICKET</button>
     </div>
 
@@ -181,6 +183,9 @@
                 const welcomeArea = document.getElementById('welcome-area');
                 welcomeArea.style.display = 'block';
                 document.getElementById('ticket-show').innerText = 'You Purchase '+countFirstClass+ ' First class Ticket and '+countEconomy+' Economy class Ticket';
+                const totalAmount = document.getElementById('total-amount').innerText;
+                const newTotalAmount = totalAmount;
+                document.getElementById('amount').innerText = 'Total Amount '+newTotalAmount;
             }
         });
     </script>
