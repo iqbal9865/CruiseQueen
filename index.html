@@ -111,8 +111,11 @@
     </main>
     <div id="welcome-area">
         <h1>Welcome To Travel With CRUISE QUEEN </h1>
-        <h2>Your Ticket Booking is Successful </h2>
-        <h2>Have A Safe Journey</h2>
+        <h1>Your Ticket Booking is Successful </h1>
+        <br>
+        <h2 id="ticket-show"></h2>
+        <h2>Have A Safe Journey!</h2>
+        <button id="download-btn">DOWNLAOD YOUR TICKET</button>
     </div>
 
     <script>
@@ -177,6 +180,7 @@
                 heading.style.display = 'none';
                 const welcomeArea = document.getElementById('welcome-area');
                 welcomeArea.style.display = 'block';
+                document.getElementById('ticket-show').innerText = 'You Purchase '+countFirstClass+ ' First class Ticket and '+countEconomy+' Economy class Ticket';
             }
         });
     </script>

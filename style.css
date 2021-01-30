@@ -130,7 +130,7 @@ nav ul li a:hover, a.active{
     color: white;
     background-color: tomato;
     width: 70%;
-    margin: 200px auto;
+    margin: 150px auto;
     border-radius: 20px;
     text-align: center;
     padding: 40px;
@@ -140,4 +140,12 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+#download-btn{
+    padding: 20px;
+    margin-top: 40px;
+    color: black;
+    font-weight: 600;
+    background-color: lightsalmon;
+    border-radius: 10px;
 }
