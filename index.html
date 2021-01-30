@@ -15,7 +15,7 @@
 
 <body>
     <!--Header and Menu Section-->
-    <header class="container">
+    <header id="heading" class="container">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -118,32 +118,32 @@
     <script>
         //this is for number increase in first class
         document.getElementById('increase-firstClass').addEventListener('click', function () {
-            increaseAndDecrease(true,'firstClass');
+            increaseAndDecrease(true, 'firstClass');
         });
         //this is for number decrease in first class
         document.getElementById('decrease-firstClass').addEventListener('click', function () {
-            increaseAndDecrease(false,'firstClass');
+            increaseAndDecrease(false, 'firstClass');
         });
         //this is for number increase in economy class
         document.getElementById('increase-economy').addEventListener('click', function () {
-            increaseAndDecrease(true,'economy');
+            increaseAndDecrease(true, 'economy');
         });
         //this is for number decrease in economy class
         document.getElementById('decrease-economy').addEventListener('click', function () {
-            increaseAndDecrease(false,'economy');
+            increaseAndDecrease(false, 'economy');
         });
         //function for increase and decrease ticket
-        function increaseAndDecrease(isIncrease,ticket) {
-            const inputClass = document.getElementById('count-'+ticket);
+        function increaseAndDecrease(isIncrease, ticket) {
+            const inputClass = document.getElementById('count-' + ticket);
             const countClass = parseInt(inputClass.value);
-            let newClass = countClass;
+            let newCount = countClass;
             if (isIncrease == true) {
-                newClass = countClass + 1;
+                newCount = countClass + 1;
             }
             if (isIncrease == false && countClass > 0) {
-                newClass = countClass - 1;
+                newCount = countClass - 1;
             }
-            document.getElementById('count-'+ticket).value = newClass;
+            document.getElementById('count-' + ticket).value = newCount;
             totalCalculate();
         }
         //function for calculate amount
@@ -153,21 +153,24 @@
             const inputEconomy = document.getElementById('count-economy');
             const countEconomy = parseInt(inputEconomy.value);
 
-            const subTotal= (countFirstClass*150) + (countEconomy*100);
-            document.getElementById('sub-total').innerText = '$'+ subTotal;
+            const subTotal = (countFirstClass * 150) + (countEconomy * 100);
+            document.getElementById('sub-total').innerText = '$' + subTotal;
             const tax = Math.round(subTotal * 0.1);
-            document.getElementById('tax').innerText ='$'+tax;
+            document.getElementById('tax').innerText = '$' + tax;
             const totalAmount = subTotal + tax;
-            document.getElementById('total-amount').innerText = '$'+totalAmount;
+            document.getElementById('total-amount').innerText = '$' + totalAmount;
         }
-        document.getElementById('booking-btn').addEventListener('click',function(){
+        document.getElementById('booking-btn').addEventListener('click', function () {
             const bookingContent = document.getElementById('right-part');
             const bookingForm = document.getElementById('left-part');
+            const heading = document.getElementById('heading');
             bookingForm.style.display = 'none';
             bookingContent.style.display = 'none';
+            heading.style.display = 'none';
             const welcomeArea = document.getElementById('welcome-area');
             welcomeArea.style.display = 'block';
-        })
+        });
     </script>
 </body>
+
 </html>
